@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Mortuario</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Comfortaa', arial, cursive;
+        }
+
+        body {
+            background-image: url('img/mortuario.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .cuapri {
+            text-align: center;
+            background-color: rgb(19,88,53,0.75);
+            padding: 40px 20px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 0 15px rgb(44,180,20,0.5);
+            border-radius: 10px;
+            color: white;
+        }
+
+        .cuapri h1 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .cuapri p {
+            font-size: 15px;
+            margin-bottom: 0px;
+        }
+
+        .opcpri {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .opcpri button {
+            width: 100%;
+            padding: 10px;
+            font-size: 20px;
+            font-family: 'Comfortaa', arial, cursive;
+            border: none;
+            background-color: #0f380e;
+            color: white;
+            cursor: pointer;
+            transition: background 1s ease;
+        }
+
+        .opcpri button:hover {
+            background-color: #30622f;
+        }
+
+        .exipri {
+            width: 100%;
+            padding: 10px;
+            margin-top: 0px;
+            font-size: 20px;
+            font-family: 'Comfortaa', cursive;
+            border: none;
+            background-color: #0f380e;
+            color: white;
+            cursor: pointer;
+            transition: background 1s ease;
+        }
+
+        .exipri:hover {
+            background-color: #30622f;
+        }
+    </style>
+</head>
+<body>
+    <div class="cuapri">
+        <h1>El Mortuario</h1>
+        <p>Mientra inicias tu aventura, te topas con una cabaña en medio de tu ruta, hechas un vistazo desde adentro y ves que son un monton de cofres con recursos, vas por la puerta y una nota en la misma advierte que entre los recursos, también pueden haber trampas mortales ocultas, por lo que es un riesgo cada vez que te permanezcas en el sitio.<br>¿Estás dispuesto/a a asumir el riesgo?</p><br>
+
+        <div class="opcpri">
+            <button onclick="opc1()">Si, lo estoy</button>
+            <button onclick="opc2()">No, paso de largo</button>
+        </div>
+
+        <button class="exipri" onclick="opexit()">Salir de la Aventura</button>
+    </div>
+
+    <script>
+        function opc1() {
+            let probabilidad = Math.random();
+            if (probabilidad < 0.5) {
+                location.href = 'mor_1.html';
+            } else if (probabilidad < 0.1) {
+                location.href = 'mor_3.html';
+            } else{
+                location.href = 'mor_2.html';
+            }
+        }
+
+        function opc2() {
+            let probabilidad = Math.random();
+            if (probabilidad < 0.33) {
+                location.href = 'lag_0.html';
+            } else if (probabilidad < 0.34) {
+                location.href = 'lla_0.html';
+            } else {
+                location.href = 'bos_0.html';
+            }
+        }
+
+        function opexit() {
+            const confirmacion = confirm("¿Seguro de querer salir y perder tu progreso?");
+            if (confirmacion) {
+                location.href = '../index.html';
+            }
+        }
+
+        history.pushState(null, '', location.href);
+        window.onpopstate = function() {
+            location.href = '../index.html';
+        };
+    </script>
+</body>
+</html>

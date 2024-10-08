@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Llanura</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Comfortaa', cursive;
+        }
+
+        body {
+            background-image: url('img/llanura.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .main-container {
+            text-align: center;
+            background-color: rgb(19,88,53,0.75);
+            padding: 40px 20px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 0 15px rgb(44,180,20,0.5);
+            border-radius: 10px;
+            color: white;
+        }
+
+        .main-container h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .main-container p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .options-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .options-container button {
+            width: 48%;
+            padding: 15px;
+            font-size: 18px;
+            font-family: 'Comfortaa', cursive;
+            border: none;
+            background-color: #0f380e;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .options-container button:hover {
+            background-color: #30622f;
+        }
+
+        .exit-button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 18px;
+            font-family: 'Comfortaa', cursive;
+            border: none;
+            background-color: #0f380e;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .exit-button:hover {
+            background-color: #30622f;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <h1>Aun no posees suficientes recursos</h1>
+        <p>Tal parece que los recursos que posees aun no son suficientes para lograr hacer un hogar seguro aquí, aun te queda muchos recursos por conseguir.<br>
+        Ahora es momento de seguir tu ruta, aun hay que continuar tu aventura.</p>
+
+        <button class="exit-button" onclick="opcion1()">Irnos hacia otro lugar</button>
+        <button class="exit-button" onclick="location.href='../index.html'">Finalizar Aventura</button>
+    </div>
+
+    <script>
+
+        function opcion1() {
+            let probabilidad = Math.random();
+            if (probabilidad < 0.45) {
+                location.href = 'lag_0.html';
+            } else if (probabilidad < 0.45) {
+                location.href = 'bos_0.html';
+            } else{
+                location.href = 'cam_0.html';
+            }
+        }
+        
+        history.pushState(null, '', location.href);
+        window.onpopstate = function() {
+            location.href = '../index.html';
+        };
+    </script>
+</body>
+</html>

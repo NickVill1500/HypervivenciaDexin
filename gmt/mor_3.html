@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Mortuario</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Comfortaa', cursive;
+        }
+
+        body {
+            background-image: url('img/mortuario.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .cuapri {
+            text-align: center;
+            background-color: rgb(19,88,53,0.75);
+            padding: 40px 20px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 0 15px rgb(44,180,20,0.5);
+            border-radius: 10px;
+            color: white;
+        }
+
+        .cuapri h1 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .cuapri h2 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .cuapri p {
+            font-size: 15px;
+            margin-bottom: 0px;
+        }
+
+        .opcpri {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .opcpri button {
+            width: 100%;
+            padding: 10px;
+            font-size: 20px;
+            font-family: 'Comfortaa', arial, cursive;
+            border: none;
+            background-color: #0f380e;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .opcpri button:hover {
+            background-color: #30622f;
+        }
+
+        .exipri {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 20px;
+            font-family: 'Comfortaa', arial, cursive;
+            border: none;
+            background-color: #0f380e;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .exipri:hover {
+            background-color: #30622f;
+        }
+    </style>
+</head>
+<body>
+    <div class="cuapri">
+        <h1>Has Muerto</h1>
+        <p>En tu busqueda de cofres en El Mortuario, has caido en una trampa mortal imprevista, que ha hecho que perecieras al instante.<br>
+        Dando por finalizado tu aventura, muriendo por una trampa en El Mortuario.<h2>Fin</h2></p>
+
+        <button class="exipri" onclick="location.href='../index.html'">Finalizar Aventura</button>
+    </div>
+
+    <script>
+        history.pushState(null, '', location.href);
+        window.onpopstate = function() {
+            location.href = '../index.html';
+        };
+    </script>
+</body>
+</html>
